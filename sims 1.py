@@ -75,6 +75,7 @@ class Human:
         print(f"Money {self.money}")
         print(f"Gladness {self.gladness}")
         print(f"Satiety {self.satiety}")
+        print(f"Satiety {self.satiety}")
         print(f"{'Home indexes':+^50}")
         print(f"Food {self.home.food}")
         print(f"Mess {self.home.mess}")
@@ -94,7 +95,7 @@ class Human:
             return False
 
     def live(self, day):
-        if not self.is_alive():
+        if self.is_alive() == False:
             print("GAME OVER")
             return False
         if self.home is None:
@@ -175,7 +176,14 @@ brand_list = {
     "OPEL": {'fuel': 40, "strength": 50, "consumption": 10},
 }
 job_list = {
-    "Developer Java": {'salary': 50, "gladness_less": 10},
-    "Developer Python": {'salary': 30, "gladness_less": 20},
-    "Developer C++": {'salary': 60, "gladness_less": 5},
+    "Developer Java": {'salary': 50, "gladness_less": 2},
+    "Developer Python": {'salary': 30, "gladness_less": 3},
+    "Developer C++": {'salary': 60, "gladness_less": 1},
 }
+
+
+
+nick = Human("Nick")
+for d in range(1, 366):
+    if nick.live(d) == False:
+        break
