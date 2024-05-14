@@ -70,6 +70,17 @@ class Human:
         # ------------Day 1------------
         day = f"Today the {day} of {self.name}'s life"
         print(f"Day {day:-^50}")
+        human_indexes = f"{self.name}'s indexes"
+        print(f"{human_indexes:+^50}")
+        print(f"Money {self.money}")
+        print(f"Gladness {self.gladness}")
+        print(f"Satiety {self.satiety}")
+        print(f"{'Home indexes':+^50}")
+        print(f"Food {self.home.food}")
+        print(f"Mess {self.home.mess}")
+        print(f"{self.car.brand} car indexes")
+        print(f"Fuel {self.car.fuel}")
+        print(f"Strength {self.car.strength}")
 
 
     def to_repair(self):
