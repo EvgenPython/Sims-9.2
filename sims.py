@@ -82,6 +82,58 @@ class Human:
         print(f"Fuel {self.car.fuel}")
         print(f"Strength {self.car.strength}")
 
+    def is_alive(self):
+        if self.gladness <= 0:
+            print("Depression...")
+            return False
+        if self.satiety <= 0:
+            print('Dead...')
+            return False
+        if self.money <= -100:
+            print("Bankrupt")
+            return False
+
+    def live(self, day):
+        if not self.is_alive():
+            print("GAME OVER")
+            return False
+        if self.home is None:
+            print("Settle in the house")
+            self.get_home()
+        if self.car is None:
+            self.get_car()
+            print(f"I bought a car {self.car.brand}")
+        if self.job is None:
+            self.get_job()
+            print(f"I working {self.job.job} salary {self.job.salary}")
+
+        self.days_indexes(day)
+        dice = randint(1,4)
+        if self.satiety < 10:
+            print("Time to eat")
+            self.eat()
+        elif self.gladness < 5:
+            print("Time to chill")
+            self.chill()
+        elif self.money < 5:
+            print("Time working!")
+            self.work()
+        elif self.car.strength < 2:
+            print("Time to repair")
+            self.to_repair()
+        elif dice == 1:
+            print("Time to chill")
+            self.chill()
+        elif dice == 2:
+            print("Time working!")
+            self.work()
+        elif dice == 3:
+            print("Time cleaning")
+            self.clean_home()
+        elif dice == 4:
+            print("I'm happy")
+            self.shopping("delicacies")
+
 
     def to_repair(self):
         pass # Home Work
